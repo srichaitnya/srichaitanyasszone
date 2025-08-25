@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Home | Class 8 Study Website</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- important for mobile scaling -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     * {
       margin: 0;
@@ -18,14 +18,35 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding: 40px 20px 80px; /* extra bottom padding for nav */
+      padding: 40px 20px 80px;
       color: #fff;
       overflow-x: hidden;
     }
 
+    /* ✅ Profile Section */
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+      animation: fadeDown 1.5s ease;
+    }
+    .profile img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .profile h2 {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
     h1 {
-      font-size: 40px;
-      margin-bottom: 40px;
+      font-size: 32px;
+      margin-bottom: 30px;
       text-align: center;
       animation: fadeDown 1.5s ease;
     }
@@ -87,16 +108,23 @@
     /* ✅ Mobile responsiveness */
     @media (max-width: 600px) {
       h1 {
-        font-size: 28px;
-        margin-bottom: 25px;
+        font-size: 24px;
+        margin-bottom: 20px;
       }
       .subjects {
-        grid-template-columns: 1fr; /* single column on small screens */
+        grid-template-columns: 1fr;
         gap: 15px;
       }
       .card {
         font-size: 16px;
         padding: 20px;
+      }
+      .profile img {
+        width: 80px;
+        height: 80px;
+      }
+      .profile h2 {
+        font-size: 18px;
       }
     }
 
@@ -133,6 +161,12 @@
 </head>
 <body>
 
+  <!-- ✅ Profile Section -->
+  <div class="profile">
+    <img src="profile.jpg" alt="Profile Picture"> <!-- Change to your image file -->
+    <h2>Akash</h2> <!-- ✅ Your name here -->
+  </div>
+
   <h1>📘 Class 8 Subjects</h1>
 
   <div class="subjects">
@@ -148,25 +182,12 @@
 
   <!-- ✅ Bottom Navigation Bar -->
   <div class="bottom-nav">
-    <a href="index.htm">🏠 Home</a>
+    <a href="index.html">🏠 Home</a>
     <a href="math.htm">➕ Math</a>
-    <a href="phy.htm">🔬 phy</a>
+    <a href="che.htm">🔬 Science</a>
     <a href="eng.htm">📖 English</a>
     <a href="sst.htm">🌍 SST</a>
   </div>
-
-  <script>
-    // Little animation on cards when page loads
-    const cards = document.querySelectorAll('.card');
-    cards.forEach((card, i) => {
-      card.style.opacity = 0;
-      setTimeout(() => {
-        card.style.transition = "0.6s";
-        card.style.opacity = 1;
-        card.style.transform = "translateY(0)";
-      }, i * 200 + 300);
-    });
-  </script>
 
 </body>
 </html>
