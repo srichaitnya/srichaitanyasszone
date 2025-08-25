@@ -37,11 +37,18 @@
       border-radius: 50%;
       border: 3px solid #fff;
       object-fit: cover;
-      margin-bottom: 10px;
+      margin: 5px;
     }
     .profile h2 {
       font-size: 22px;
       font-weight: bold;
+      margin-top: 8px;
+      outline: none;
+    }
+    .profile h2[contenteditable="true"] {
+      border-bottom: 2px dashed #fff;
+      padding: 2px 6px;
+      cursor: text;
     }
 
     h1 {
@@ -163,8 +170,11 @@
 
   <!-- ✅ Profile Section -->
   <div class="profile">
-    <img src="profile.jpg" alt="Profile Picture"> <!-- Change to your image file -->
-    <h2>Akash</h2> <!-- ✅ Your name here -->
+    <div style="display: flex; justify-content: center;">
+      <img src="profile1.jpg" alt="Profile Pic 1"> <!-- First image -->
+      <img src="profile2.jpg" alt="Profile Pic 2"> <!-- Second image -->
+    </div>
+    <h2 contenteditable="true">Click to Edit Name</h2> <!-- Editable Name -->
   </div>
 
   <h1>📘 Class 8 Subjects</h1>
@@ -184,12 +194,14 @@
   <div class="bottom-nav">
     <a href="index.html">🏠 Home</a>
     <a href="math.htm">➕ Math</a>
-    <a href="che.htm">🔬 Science</a>
+    <a href="vhe.htm">🔬 Science</a>
     <a href="eng.htm">📖 English</a>
     <a href="sst.htm">🌍 SST</a>
   </div>
 
 </body>
 </html>
+
+
 
 
