@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Home | Class 8 Study Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- important for mobile scaling -->
   <style>
     * {
       margin: 0;
@@ -12,7 +13,7 @@
     }
     body {
       min-height: 100vh;
-      background: linear-gradient(135deg, #667eea, #764ba2);
+      background: linear-gradient(135deg, #ea6666, #a24b61);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -36,8 +37,8 @@
 
     .subjects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
       width: 100%;
       max-width: 1000px;
       animation: fadeUp 1.5s ease;
@@ -51,11 +52,11 @@
     .card {
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
-      padding: 30px 20px;
-      border-radius: 20px;
+      padding: 25px 15px;
+      border-radius: 16px;
       text-align: center;
       color: #fff;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: bold;
       cursor: pointer;
       transition: 0.4s;
@@ -75,12 +76,28 @@
       transform: scale(1);
     }
     .card:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
     a {
       text-decoration: none;
       color: inherit;
+    }
+
+    /* ✅ Mobile responsiveness */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 28px;
+        margin-bottom: 25px;
+      }
+      .subjects {
+        grid-template-columns: 1fr; /* single column on small screens */
+        gap: 15px;
+      }
+      .card {
+        font-size: 16px;
+        padding: 20px;
+      }
     }
   </style>
 </head>
