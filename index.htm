@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Study Website</title>
+  <style>
+    /* ====== RESET ====== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      overflow: hidden;
+    }
+
+    /* ====== ANIMATED BACKGROUND ====== */
+    .bubbles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .bubbles span {
+      position: absolute;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      animation: rise 15s linear infinite;
+      bottom: -150px;
+    }
+    .bubbles span:nth-child(1) { left: 25%; width: 40px; height: 40px; animation-delay: 0s; }
+    .bubbles span:nth-child(2) { left: 10%; animation-delay: 2s; animation-duration: 12s; }
+    .bubbles span:nth-child(3) { left: 70%; width: 60px; height: 60px; animation-delay: 4s; }
+    .bubbles span:nth-child(4) { left: 40%; width: 80px; height: 80px; animation-delay: 0s; animation-duration: 18s; }
+    .bubbles span:nth-child(5) { left: 65%; animation-delay: 0s; }
+    .bubbles span:nth-child(6) { left: 75%; width: 100px; height: 100px; animation-delay: 3s; }
+    .bubbles span:nth-child(7) { left: 35%; width: 150px; height: 150px; animation-delay: 7s; }
+
+    @keyframes rise {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+      100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; }
+    }
+
+    /* ====== LOGIN BOX ====== */
+    .login-box {
+      position: relative;
+      z-index: 1;
+      width: 360px;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      animation: slideIn 1.5s ease;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #fff;
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    .input-box {
+      position: relative;
+      margin-bottom: 25px;
+    }
+    .input-box input {
+      width: 100%;
+      padding: 12px 15px;
+      border: none;
+      outline: none;
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 16px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+    .input-box input:focus {
+      background: rgba(255,255,255,0.3);
+      box-shadow: 0 0 8px #00f2fe;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: linear-gradient(135deg, #43e97b, #38f9d7);
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.4s;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .links {
+      margin-top: 20px;
+      text-align: center;
+      color: #fff;
+    }
+    .links a {
+      color: #ffeb3b;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .links a:hover {
+      color: #fff;
+      text-shadow: 0 0 5px #ffeb3b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bubbles Background -->
+  <div class="bubbles">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+  </div>
+
+  <!-- Login Box -->
+  <div class="login-box">
+    <h2>Login</h2>
+    <form action="index3.htm">
+      <div class="input-box">
+        <input type="text" placeholder="Username" required>
+      </div>
+      <div class="input-box">
+        <input type="password" placeholder="Password" required>
+      </div>
+      <button type="submit" class="btn">Login</button>
+      <div class="links">
+        <p>Don’t have an account? <a href="index2.htm">Sign Up</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Example little animation on login button
+    const btn = document.querySelector('.btn');
+    btn.addEventListener('click', () => {
+      btn.innerText = "Logging in...";
+      setTimeout(() => btn.innerText = "Login", 2000);
+    });
+  </script>
+</body>
+</html>

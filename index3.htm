@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home | Class 8 Study Website</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 40px 20px;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 40px;
+      text-align: center;
+      animation: fadeDown 1.5s ease;
+    }
+
+    @keyframes fadeDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .subjects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      width: 100%;
+      max-width: 1000px;
+      animation: fadeUp 1.5s ease;
+    }
+
+    @keyframes fadeUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 30px 20px;
+      border-radius: 20px;
+      text-align: center;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.2), transparent 70%);
+      transform: scale(0);
+      transition: transform 0.5s ease;
+    }
+    .card:hover::before {
+      transform: scale(1);
+    }
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📘 Class 8 Subjects</h1>
+
+  <div class="subjects">
+    <a href="hindi.htm"><div class="card">Hindi</div></a>
+    <a href="eng.htm"><div class="card">English</div></a>
+    <a href="math.htm"><div class="card">Mathematics</div></a>
+    <a href="sst.htm"><div class="card">Social Science</div></a>
+    <a href="pbi.htm"><div class="card">Punjabi</div></a>
+    <a href="phy.htm"><div class="card">Physics</div></a>
+    <a href="che.htm"><div class="card">Chemistry</div></a>
+    <a href="bio.htm"><div class="card">Biology</div></a>
+  </div>
+
+  <script>
+    // Little animation on cards when page loads
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card, i) => {
+      card.style.opacity = 0;
+      setTimeout(() => {
+        card.style.transition = "0.6s";
+        card.style.opacity = 1;
+        card.style.transform = "translateY(0)";
+      }, i * 200 + 300);
+    });
+  </script>
+
+</body>
+</html>

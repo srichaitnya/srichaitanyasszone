@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Math Notes | Class 8</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+    body{
+      min-height:100vh;
+      background:linear-gradient(135deg,#f7971e,#ffd200);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:40px 20px;
+      color:#fff;
+    }
+    h1{
+      font-size:32px;
+      margin-bottom:30px;
+      animation:fadeDown 1s ease;
+    }
+    @keyframes fadeDown{
+      from{transform:translateY(-30px);opacity:0;}
+      to{transform:translateY(0);opacity:1;}
+    }
+    .note-card{
+      width:100%;
+      max-width:800px;
+      background:rgba(255,255,255,0.15);
+      backdrop-filter:blur(10px);
+      border-radius:15px;
+      padding:20px 25px;
+      margin-bottom:20px;
+      transition:0.4s;
+      cursor:pointer;
+      position:relative;
+      overflow:hidden;
+    }
+    .note-card:hover{
+      transform:translateY(-6px) scale(1.02);
+      box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    }
+    .note-card::before{
+      content:"";
+      position:absolute;
+      top:-50%; left:-50%;
+      width:200%; height:200%;
+      background:radial-gradient(circle, rgba(255,255,255,0.2), transparent 70%);
+      transform:scale(0);
+      transition:transform 0.5s ease;
+    }
+    .note-card:hover::before{
+      transform:scale(1);
+    }
+    .back{
+      margin-top:30px;
+      font-size:18px;
+      text-decoration:underline;
+      color:#fff;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    .back:hover{
+      color:#000;
+      text-shadow:0 0 5px #fff;
+    }
+  </style>
+</head>
+<body>
+
+<h1>📚 Math Notes</h1>
+
+<!-- Chapters -->
+<div class="note-card">Chapter 1: [Insert Your Notes Here]</div>
+<div class="note-card">Chapter 2: [Insert Your Notes Here]</div>
+<div class="note-card">Chapter 3: [Insert Your Notes Here]</div>
+
+<!-- MPC -->
+<div class="note-card">MPC: [Insert Your Notes Here]</div>
+
+<!-- OT 1-8 -->
+<div class="note-card">OT1: [Insert Your Notes Here]</div>
+<div class="note-card">OT2: [Insert Your Notes Here]</div>
+<div class="note-card">OT3: [Insert Your Notes Here]</div>
+<div class="note-card">OT4: [Insert Your Notes Here]</div>
+<div class="note-card">OT5: [Insert Your Notes Here]</div>
+<div class="note-card">OT6: [Insert Your Notes Here]</div>
+<div class="note-card">OT7: [Insert Your Notes Here]</div>
+<div class="note-card">OT8: [Insert Your Notes Here]</div>
+
+<!-- FBT 1-4 -->
+<div class="note-card">FBT1: [Insert Your Notes Here]</div>
+<div class="note-card">FBT2: [Insert Your Notes Here]</div>
+<div class="note-card">FBT3: [Insert Your Notes Here]</div>
+<div class="note-card">FBT4: [Insert Your Notes Here]</div>
+
+<a href="math.htm" class="back">← Back to Math</a>
+
+<script>
+  const cards = document.querySelectorAll('.note-card');
+  cards.forEach((card,i)=>{
+    card.style.opacity=0;
+    card.style.transform="translateY(20px)";
+    setTimeout(()=>{
+      card.style.transition="0.6s";
+      card.style.opacity=1;
+      card.style.transform="translateY(0)";
+    },i*200+200);
+  });
+</script>
+
+</body>
+</html>

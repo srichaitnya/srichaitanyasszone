@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chemistry Notes | Class 8</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+    body{
+      min-height:100vh;
+      background: linear-gradient(135deg,#ff7e5f,#feb47b); /* orange gradient */
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:40px 20px;
+      color:#fff;
+    }
+    h1{
+      font-size:36px;
+      margin-bottom:30px;
+      animation:fadeDown 1s ease;
+    }
+    @keyframes fadeDown{
+      from{transform:translateY(-30px);opacity:0;}
+      to{transform:translateY(0);opacity:1;}
+    }
+    .note-card{
+      width:100%;
+      max-width:800px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-radius:15px;
+      padding:20px 25px;
+      margin-bottom:20px;
+      transition:0.4s;
+      cursor:pointer;
+      position:relative;
+      overflow:hidden;
+    }
+    .note-card:hover{
+      transform:translateY(-6px) scale(1.02);
+      box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    }
+    .note-card::before{
+      content:"";
+      position:absolute;
+      top:-50%; left:-50%;
+      width:200%; height:200%;
+      background:radial-gradient(circle, rgba(255,255,255,0.2), transparent 70%);
+      transform:scale(0);
+      transition:transform 0.5s ease;
+    }
+    .note-card:hover::before{
+      transform:scale(1);
+    }
+    .back{
+      margin-top:30px;
+      font-size:18px;
+      text-decoration:underline;
+      color:#fff;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    .back:hover{
+      color:#000;
+      text-shadow:0 0 5px #fff;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🧪 Chemistry Notes</h1>
+
+<!-- Chapters -->
+<div class="note-card">Chapter 1: Matter and Its Nature</div>
+<div class="note-card">Chapter 2: Atomic Structure</div>
+
+<!-- OT 1–8 -->
+<div class="note-card">OT 1: Chemical Bonding</div>
+<div class="note-card">OT 2: States of Matter</div>
+<div class="note-card">OT 3: Chemical Reactions</div>
+<div class="note-card">OT 4: Acids & Bases</div>
+<div class="note-card">OT 5: Metals & Non-Metals</div>
+<div class="note-card">OT 6: Carbon Compounds</div>
+<div class="note-card">OT 7: Periodic Table</div>
+<div class="note-card">OT 8: Environmental Chemistry</div>
+
+<!-- COT 1–4 -->
+<div class="note-card">COT 1: Chapter OT Test 1</div>
+<div class="note-card">COT 2: Chapter OT Test 2</div>
+<div class="note-card">COT 3: Chapter OT Test 3</div>
+<div class="note-card">COT 4: Chapter OT Test 4</div>
+
+<!-- Assessments 1–4 -->
+<div class="note-card">Assessment 1</div>
+<div class="note-card">Assessment 2</div>
+<div class="note-card">Assessment 3</div>
+<div class="note-card">Assessment 4</div>
+
+<a href="che.htm" class="back">← Back to Chemistry</a>
+
+<script>
+  const cards = document.querySelectorAll('.note-card');
+  cards.forEach((card,i)=>{
+    card.style.opacity=0;
+    card.style.transform="translateY(20px)";
+    setTimeout(()=>{
+      card.style.transition="0.6s";
+      card.style.opacity=1;
+      card.style.transform="translateY(0)";
+    },i*200+200);
+  });
+</script>
+
+</body>
+</html>
