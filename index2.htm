@@ -1,39 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Signup | Study Website</title>
-<style>
-body { font-family: Arial; background: #4facfe; display:flex; align-items:center; justify-content:center; height:100vh; }
-.signup-box { background: rgba(255,255,255,0.2); padding: 30px; border-radius: 15px; backdrop-filter: blur(10px); }
-input { width:100%; padding:10px; margin:10px 0; border-radius:5px; border:none; }
-button { padding:10px; width:100%; background:#38f9d7; border:none; border-radius:5px; cursor:pointer; }
-</style>
+  <title>Signup</title>
+  <style>
+    body {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      font-family:poppins,sans-serif;
+      margin:0;
+      background: linear-gradient(-45deg, #ff512f, #dd2476, #24c6dc, #514a9d);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .box {
+      background:rgba(255,255,255,0.15);
+      padding:30px;
+      border-radius:20px;
+      text-align:center;
+      backdrop-filter:blur(10px);
+      color:white;
+      box-shadow:0 4px 20px rgba(0,0,0,0.3);
+    }
+    input {
+      width:90%;
+      padding:10px;
+      margin:10px;
+      border:none;
+      border-radius:10px;
+      text-align:center;
+    }
+    button {
+      padding:12px;
+      width:100%;
+      border:none;
+      border-radius:10px;
+      background:#4caf50;
+      font-size:16px;
+      cursor:pointer;
+      transition:0.3s;
+      color:white;
+    }
+    button:hover {
+      transform:scale(1.05);
+      background:#2e7d32;
+    }
+  </style>
 </head>
 <body>
-<div class="signup-box">
-  <h2>Sign Up</h2>
-  <input type="text" id="name" placeholder="Name">
-  <input type="text" id="rollno" placeholder="Roll No">
-  <input type="password" id="password" placeholder="Password">
-  <button onclick="signup()">Sign Up</button>
-  <p>Already have an account? <a href="index.htm">Login</a></p>
-</div>
+  <div class="box">
+    <h2>Signup</h2>
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="text" id="rollno" placeholder="Roll No" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="signup()">Create Account</button>
+    <p>Already have account? <a href="index.htm" style="color:yellow;">Login</a></p>
+  </div>
 
 <script>
-let students = JSON.parse(localStorage.getItem("students") || "[]");
+  const scriptURL = "YOUR_SCRIPT_URL"; // paste your Apps Script Web App URL here
 
-function signup(){
-  const name = document.getElementById('name').value;
-  const roll = document.getElementById('rollno').value;
-  const pass = document.getElementById('password').value;
-  if(!name || !roll || !pass){ alert("Please fill all fields"); return; }
-  if(students.find(s=>s.roll===roll)){ alert("Roll No already exists"); return; }
-  students.push({name, roll, password: pass});
-  localStorage.setItem("students", JSON.stringify(students));
-  alert("Signup Successful! You can now login.");
-  window.location.href="index.htm";
-}
+  function signup() {
+    fetch(scriptURL, {
+      method: 'POST',
+      body: new URLSearchParams({
+        action: 'signup',
+        name: document.getElementById('name').value,
+        rollno: document.getElementById('rollno').value,
+        password: document.getElementById('password').value
+      })
+    })
+    .then(res => res.text())
+    .then(txt => {
+      if(txt=="SUCCESS") {
+        alert("Account created! Now login.");
+        window.location.href="index.htm"; // go back to login
+      } else {
+        alert("Error: " + txt);
+      }
+    })
+  }
 </script>
 </body>
 </html>
+
